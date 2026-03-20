@@ -1,5 +1,4 @@
 import { Link } from "react-router";
-import { Mail } from "lucide-react"
 import GitHubIcon from "@mui/icons-material/GitHub";
 import LinkedInIcon from "@mui/icons-material/LinkedIn";
 
