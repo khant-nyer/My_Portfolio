@@ -1,5 +1,7 @@
 import { Link } from "react-router";
-import { Github, Linkedin, Mail } from "lucide-react";
+import { Mail } from "lucide-react"
+import GitHubIcon from "@mui/icons-material/GitHub";
+import LinkedInIcon from "@mui/icons-material/LinkedIn";
 
 export function Navbar() {
   const scrollTo = (id: string) => {
@@ -24,10 +26,10 @@ export function Navbar() {
           </div>
           <div className="flex items-center space-x-4">
             <a href="https://github.com/khant-nyer" target="_blank" rel="noreferrer" className="text-zinc-400 hover:text-white transition-colors">
-              <Github className="w-5 h-5" />
+              <GitHubIcon className="w-5 h-5" />
             </a>
             <a href="https://www.linkedin.com/in/khant-nyer-maung-423b29215/" target="_blank" rel="noreferrer" className="text-zinc-400 hover:text-white transition-colors">
-              <Linkedin className="w-5 h-5" />
+              <LinkedInIcon className="w-5 h-5" />
             </a>
           </div>
         </div>
