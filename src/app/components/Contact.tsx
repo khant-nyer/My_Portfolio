@@ -1,5 +1,5 @@
 import { motion } from "motion/react";
-import { Mail, Send, MapPin } from "lucide-react";
+import {Mail, Send, MapPin, Phone} from "lucide-react";
 import React, { useState } from "react";
 
 export function Contact() {
@@ -66,6 +66,15 @@ export function Contact() {
                   <p className="text-lg font-medium text-white">Bangkok, Thailand</p>
                 </div>
               </div>
+              <div className="flex items-center space-x-4 p-4 bg-zinc-950 border border-zinc-800 rounded-xl">
+                <div className="p-3 bg-zinc-900 rounded-lg">
+                  <Phone className="w-6 h-6 text-cyan-400" />
+                </div>
+                <div>
+                  <h4 className="text-sm font-medium text-zinc-400">Call Me At</h4>
+                  <p className="text-lg font-medium text-white">+66 0922994316</p>
+                </div>
+              </div>
             </div>
           </motion.div>
 
@@ -91,8 +100,7 @@ export function Contact() {
                   onChange={handleChange}
                   required
                   className="w-full px-4 py-3 bg-zinc-900/50 border border-zinc-700 rounded-lg focus:outline-none focus:ring-2 focus:ring-emerald-500/50 focus:border-emerald-500/50 transition-colors text-white placeholder-zinc-500"
-                  placeholder="John Doe"
-                />
+                 />
               </div>
               <div className="space-y-2">
                 <label htmlFor="email" className="text-sm font-medium text-zinc-300">Email Address</label>
@@ -104,8 +112,7 @@ export function Contact() {
                   onChange={handleChange}
                   required
                   className="w-full px-4 py-3 bg-zinc-900/50 border border-zinc-700 rounded-lg focus:outline-none focus:ring-2 focus:ring-emerald-500/50 focus:border-emerald-500/50 transition-colors text-white placeholder-zinc-500"
-                  placeholder="john@example.com"
-                />
+                 />
               </div>
               <div className="space-y-2">
                 <label htmlFor="message" className="text-sm font-medium text-zinc-300">Your Message</label>
@@ -117,8 +124,7 @@ export function Contact() {
                   required
                   rows={4}
                   className="w-full px-4 py-3 bg-zinc-900/50 border border-zinc-700 rounded-lg focus:outline-none focus:ring-2 focus:ring-emerald-500/50 focus:border-emerald-500/50 transition-colors text-white placeholder-zinc-500 resize-none"
-                  placeholder="Tell me about your project..."
-                />
+                 />
               </div>
               
               <button
