@@ -1,4 +1,6 @@
-import { Github, Linkedin, Mail } from "lucide-react";
+import { Mail } from "lucide-react"
+import GitHubIcon from "@mui/icons-material/GitHub";
+import LinkedInIcon from "@mui/icons-material/LinkedIn";
 
 export function Footer() {
   return (
@@ -13,11 +15,11 @@ export function Footer() {
         <div className="flex space-x-6 mb-8">
           <a href="#" className="text-zinc-400 hover:text-white transition-colors">
             <span className="sr-only">GitHub</span>
-            <Github className="w-6 h-6" />
+            <GitHubIcon className="w-6 h-6" />
           </a>
           <a href="#" className="text-zinc-400 hover:text-white transition-colors">
             <span className="sr-only">LinkedIn</span>
-            <Linkedin className="w-6 h-6" />
+            <LinkedInIcon className="w-6 h-6" />
           </a>
           <a href="mailto:hello@example.com" className="text-zinc-400 hover:text-white transition-colors">
             <span className="sr-only">Email</span>
