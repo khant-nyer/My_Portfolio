@@ -55,15 +55,15 @@ export function About() {
               <div className="space-y-6">
                 <div className="relative pl-6 border-l-2 border-zinc-800">
                   <div className="absolute w-3 h-3 bg-emerald-500 rounded-full -left-[7px] top-1.5 ring-4 ring-zinc-950" />
-                  <h4 className="text-lg font-semibold text-white">Systems Analysis</h4>
+                  <h4 className="text-lg font-semibold text-white">Graduate Diploma in Systems Analysis</h4>
                   <p className="text-emerald-400 mb-2">Institute of Systems Science, National University of Singapore • 2021 - 2022</p>
-                  <p className="text-zinc-400">1 Year Post Graduate Diploma Program, focusing on digital product management, software engineering principles, and agile methodologies.</p>
+                  <p className="text-zinc-400">A global university branch focused on industry-grade software engineering and digital product leadership. Focused on bridging business needs with technical solutions through full-stack principles and Agile methodologies.</p>
                 </div>
                 <div className="relative pl-6 border-l-2 border-zinc-800">
                   <div className="absolute w-3 h-3 bg-zinc-600 rounded-full -left-[7px] top-1.5 ring-4 ring-zinc-950" />
                   <h4 className="text-lg font-semibold text-white">Bachelor of Engineering (Mechanical)</h4>
                   <p className="text-emerald-400 mb-2">Technological University (Magway) • 2012 - 2018</p>
-                  <p className="text-zinc-400">6 Year Full Engineering Course</p>
+                  <p className="text-zinc-400">An engineering institution focused on rigorous analytical training and complex systems design. Built a strong baseline in structural problem-solving, advanced mathematics, and project endurance over a 6-year curriculum.</p>
                 </div>
               </div>
             </div>
