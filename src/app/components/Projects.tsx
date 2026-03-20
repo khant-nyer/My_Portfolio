@@ -1,5 +1,6 @@
 import { motion } from "motion/react";
-import { ExternalLink, Github, MonitorSmartphone } from "lucide-react";
+import { ExternalLink, MonitorSmartphone } from "lucide-react"
+import GitHubIcon from "@mui/icons-material/GitHub";
 
 const projects = [
   {
@@ -94,7 +95,7 @@ export function Projects() {
                     <span>Live Demo</span>
                   </a>
                   <a href={project.githubUrl} target="_blank" rel="noreferrer" className="flex items-center space-x-2 text-sm font-medium text-zinc-400 hover:text-white transition-colors ml-auto">
-                    <Github className="w-4 h-4" />
+                    <GitHubIcon className="w-4 h-4" />
                     <span>Source Code</span>
                   </a>
                 </div>
