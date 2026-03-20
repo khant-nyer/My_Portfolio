@@ -46,7 +46,7 @@ export function Contact() {
               </div>
               <div className="flex items-center space-x-4 p-4 bg-zinc-950 border border-zinc-800 rounded-xl">
                 <div className="p-3 bg-zinc-900 rounded-lg">
-                  <Phone className="w-6 h-6 text-cyan-400" />
+                  <Phone className="w-6 h-6 text-emerald-400" />
                 </div>
                 <div>
                   <h4 className="text-sm font-medium text-zinc-400">Call Me At</h4>
@@ -61,11 +61,11 @@ export function Contact() {
             whileInView={{ opacity: 1, x: 0 }}
             viewport={{ once: true }}
             transition={{ duration: 0.6, delay: 0.2 }}
-            className="bg-zinc-950 p-8 rounded-2xl border border-zinc-800 shadow-2xl shadow-black/50 relative overflow-hidden"
+            className="bg-zinc-950 p-2 rounded-2xl border border-zinc-800 shadow-2xl shadow-black/50 relative overflow-hidden"
           >
             <div className="relative z-10 h-full min-h-[520px] rounded-xl overflow-hidden border border-zinc-800">
               <img
-                src="https://images.unsplash.com/photo-1461749280684-dccba630e2f6?auto=format&fit=crop&w=1200&q=80"
+                src="../../../src/resource/software-developer.jpg"
                 alt="Workspace setup"
                 className="w-full h-full object-cover"
               />
