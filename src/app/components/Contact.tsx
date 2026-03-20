@@ -65,7 +65,7 @@ export function Contact() {
           >
             <div className="relative z-10 h-full min-h-[520px] rounded-xl overflow-hidden border border-zinc-800">
               <img
-                src="../../../src/resource/software-developer.jpg"
+                src="https://github.com/khant-nyer/My_Portfolio/blob/main/src/resource/software-developer.jpg"
                 alt="Workspace setup"
                 className="w-full h-full object-cover"
               />
