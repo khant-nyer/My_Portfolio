@@ -36,7 +36,7 @@ export function Hero() {
           transition={{ duration: 0.5, delay: 0.1 }}
           className="text-5xl md:text-7xl font-extrabold tracking-tight text-white mb-6"
         >
-          Hi, I'm <span className="bg-gradient-to-r from-emerald-400 via-cyan-400 to-blue-500 bg-clip-text text-transparent">John Doe</span>
+          Hi, I'm <span className="bg-gradient-to-r from-emerald-400 via-cyan-400 to-blue-500 bg-clip-text text-transparent">Khant Nyer Maung</span>
         </motion.h1>
 
         <motion.p

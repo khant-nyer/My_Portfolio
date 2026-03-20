@@ -3,29 +3,22 @@ import { ExternalLink, Github, MonitorSmartphone } from "lucide-react";
 
 const projects = [
   {
-    title: "E-Commerce Dashboard",
-    description: "A full-stack dashboard for e-commerce analytics. Features include real-time sales tracking, inventory management, and user behavior visualization using modern charts.",
-    image: "https://images.unsplash.com/photo-1771922748624-b205cf5d002d?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3Nzg4Nzd8MHwxfHNlYXJjaHwxfHxkYXNoYm9hcmQlMjB3ZWIlMjBhcHB8ZW58MXx8fHwxNzczOTc5NTAzfDA&ixlib=rb-4.1.0&q=80&w=1080",
-    tags: ["React", "Tailwind", "Node.js", "PostgreSQL", "Recharts"],
-    liveUrl: "https://example.com",
+    title: "Personal Loan Finder",
+    description: "A full-stack web application for finding personal loan.",
+    image: "https://personalloanfinder.co/wp-content/uploads/2025/11/asian-women-discover_best-LML-in-SG.png",
+    tags: ["React", "Tailwind", "Node.js", "AWS Cognito", "Next.js"],
+    liveUrl: "https://personalloanfinder.co/",
     githubUrl: "https://github.com"
   },
   {
-    title: "TaskFlow Organizer",
-    description: "A productivity application with drag-and-drop task management, team collaboration features, and detailed project timelines. Built with a focus on seamless user interactions.",
-    image: "https://images.unsplash.com/photo-1753715613457-63127ec40824?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3Nzg4Nzd8MHwxfHNlYXJjaHwxfHxhYnN0cmFjdCUyMHRlY2glMjBjb2RpbmclMjBkYXJrfGVufDF8fHx8MTc3Mzk3OTUwMHww&ixlib=rb-4.1.0&q=80&w=1080",
-    tags: ["Next.js", "TypeScript", "Prisma", "Supabase", "Framer Motion"],
-    liveUrl: "https://example.com",
-    githubUrl: "https://github.com"
+    title: "Cooking App",
+    description: "This is my personal project. A cooking app for those who cannot cook.",
+    image: "https://i.fbcd.co/products/resized/resized-750-500/chef-hat-line-converted-01-d64572f96eb833f8a822a06e674aebc361e216b8ef2b9445606f19d2d36fa953.jpg",
+    tags: ["React", "TypeScript", "Java", "PostgreSQL", "AWS Cognito"],
+    liveUrl: "https://cookingapp-frontend.onrender.com",
+    githubUrl: "https://github.com/khant-nyer/CookingApp.git"
   },
-  {
-    title: "Fitness Companion App",
-    description: "A responsive web application helping users track workouts, plan meals, and monitor progress. Features integration with third-party fitness APIs for comprehensive data analysis.",
-    image: "https://images.unsplash.com/photo-1605108222700-0d605d9ebafe?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3Nzg4Nzd8MHwxfHNlYXJjaHwxfHxtb2JpbGUlMjBhcHAlMjBpbnRlcmZhY2V8ZW58MXx8fHwxNzczOTA4Nzk1fDA&ixlib=rb-4.1.0&q=80&w=1080",
-    tags: ["React Native (Web)", "Express", "MongoDB", "Redux"],
-    liveUrl: "https://example.com",
-    githubUrl: "https://github.com"
-  }
+
 ];
 
 export function Projects() {

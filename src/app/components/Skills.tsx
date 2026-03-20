@@ -5,22 +5,22 @@ const skills = [
   {
     category: "Frontend",
     icon: <Palette className="w-6 h-6 text-emerald-400" />,
-    items: ["React", "Next.js", "TypeScript", "Tailwind CSS", "Framer Motion", "HTML/CSS"]
+    items: ["React", "TypeScript", "Tailwind CSS", "HTML/CSS"]
   },
   {
     category: "Backend",
     icon: <Terminal className="w-6 h-6 text-cyan-400" />,
-    items: ["Node.js", "Express", "Python", "REST APIs", "GraphQL"]
+    items: ["Java", "C#", "Python", "REST APIs"]
   },
   {
     category: "Database",
     icon: <Layers className="w-6 h-6 text-blue-400" />,
-    items: ["PostgreSQL", "MongoDB", "Redis", "Prisma ORM", "Supabase"]
+    items: ["PostgreSQL", "MongoDB", "Redis", "MySQL", "Firebase"]
   },
   {
     category: "Tools & DevOps",
     icon: <Blocks className="w-6 h-6 text-purple-400" />,
-    items: ["Git/GitHub", "Docker", "Vercel", "Jest", "Figma", "Linux"]
+    items: ["Git/GitHub", "Docker", "AWS", "Figma"]
   }
 ];
 

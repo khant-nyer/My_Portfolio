@@ -54,7 +54,7 @@ export function Contact() {
                 </div>
                 <div>
                   <h4 className="text-sm font-medium text-zinc-400">Email Me At</h4>
-                  <a href="mailto:hello@example.com" className="text-lg font-medium text-white hover:text-emerald-400 transition-colors">hello@johndoe.dev</a>
+                  <a href="mailto:weixing.william@gmail.com" className="text-lg font-medium text-white hover:text-emerald-400 transition-colors">weixing.william@gmail.com</a>
                 </div>
               </div>
               <div className="flex items-center space-x-4 p-4 bg-zinc-950 border border-zinc-800 rounded-xl">
@@ -63,7 +63,7 @@ export function Contact() {
                 </div>
                 <div>
                   <h4 className="text-sm font-medium text-zinc-400">Location</h4>
-                  <p className="text-lg font-medium text-white">San Francisco, CA (Remote)</p>
+                  <p className="text-lg font-medium text-white">Bangkok, Thailand</p>
                 </div>
               </div>
             </div>

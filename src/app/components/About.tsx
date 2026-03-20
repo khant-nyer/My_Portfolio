@@ -28,7 +28,7 @@ export function About() {
             </p>
             
             <p className="text-lg text-zinc-400 mb-8">
-              My journey started with front-end development, obsessing over pixel-perfect designs, and quickly expanded into back-end architecture to understand how systems communicate and scale.
+              My journey started with back-end architecture to understand how systems communicate and scale, quickly expanded into front-end development, obsessing over pixel-perfect designs.
             </p>
 
             <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 mb-10">
@@ -55,15 +55,15 @@ export function About() {
               <div className="space-y-6">
                 <div className="relative pl-6 border-l-2 border-zinc-800">
                   <div className="absolute w-3 h-3 bg-emerald-500 rounded-full -left-[7px] top-1.5 ring-4 ring-zinc-950" />
-                  <h4 className="text-lg font-semibold text-white">Full-Stack Web Development Bootcamp</h4>
-                  <p className="text-emerald-400 mb-2">Tech Academy • 2023 - 2024</p>
-                  <p className="text-zinc-400">Intensive 6-month program focusing on modern MERN stack development, software engineering principles, and agile methodologies.</p>
+                  <h4 className="text-lg font-semibold text-white">Systems Analysis</h4>
+                  <p className="text-emerald-400 mb-2">Institute of Systems Science, National University of Singapore • 2021 - 2022</p>
+                  <p className="text-zinc-400">1 Year Post Graduate Diploma Program, focusing on digital product management, software engineering principles, and agile methodologies.</p>
                 </div>
                 <div className="relative pl-6 border-l-2 border-zinc-800">
                   <div className="absolute w-3 h-3 bg-zinc-600 rounded-full -left-[7px] top-1.5 ring-4 ring-zinc-950" />
-                  <h4 className="text-lg font-semibold text-white">Bachelor of Science in Information Technology</h4>
-                  <p className="text-emerald-400 mb-2">State University • 2019 - 2023</p>
-                  <p className="text-zinc-400">Foundation in computer science principles, database design, and systems analysis.</p>
+                  <h4 className="text-lg font-semibold text-white">Bachelor of Engineering (Mechanical)</h4>
+                  <p className="text-emerald-400 mb-2">Technological University (Magway) • 2012 - 2018</p>
+                  <p className="text-zinc-400">6 Year Full Engineering Course</p>
                 </div>
               </div>
             </div>
