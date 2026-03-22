@@ -1,5 +1,6 @@
 import { motion } from "motion/react";
 import {CheckCircle2, UserCircle, GraduationCap, Briefcase} from "lucide-react";
+import developerPhoto from "../../resource/software-developer.jpg";
 
 export function About() {
   return (
@@ -10,10 +11,10 @@ export function About() {
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true, margin: "-100px" }}
           transition={{ duration: 0.5 }}
-          className="space-y-10"
+          className="grid grid-cols-1 lg:grid-cols-2 gap-10 lg:gap-16 items-start"
         >
-          {/* Intro Content */}
-          <div className="max-w-3xl">
+          {/* Heading */}
+          <div>
             <div className="inline-flex items-center space-x-2 bg-zinc-900/50 border border-zinc-800 rounded-full px-4 py-1.5 mb-6">
               <UserCircle className="w-4 h-4 text-cyan-400" />
               <span className="text-sm font-medium text-zinc-300 uppercase tracking-wider">About Me</span>
@@ -22,11 +23,16 @@ export function About() {
             <h2 className="text-3xl md:text-5xl font-bold text-white mb-6 leading-tight">
               Transforming Ideas Into <span className="bg-gradient-to-r from-emerald-400 to-cyan-400 bg-clip-text text-transparent">Digital Reality</span>
             </h2>
-            
+
+          </div>
+          <div className="hidden lg:block" />
+
+          {/* Intro + Skills + Experience */}
+          <div>
             <p className="text-lg text-zinc-400 mb-6">
               I'm a junior full-stack developer with a strong foundation in modern web technologies. I recently transitioned into tech, bringing a fresh perspective and an insatiable curiosity for solving complex problems.
             </p>
-            
+
             <p className="text-lg text-zinc-400 mb-8">
               My journey started with back-end architecture to understand how systems communicate and scale, quickly expanded into front-end development, obsessing over pixel-perfect designs.
             </p>
@@ -71,10 +77,11 @@ export function About() {
                 </div>
               </div>
             </div>
-            </div>
 
-            {/* Image/Visual */}
-            <div className="relative lg:self-stretch">
+          </div>
+
+          {/* Experience image */}
+          <div className="relative lg:self-stretch">
               <div className="absolute inset-0 bg-gradient-to-tr from-emerald-500/20 to-cyan-500/20 rounded-2xl blur-3xl transform -rotate-6" />
               <div className="relative h-full min-h-[420px] rounded-2xl overflow-hidden border border-zinc-800 shadow-2xl shadow-black/50">
                 <img 
@@ -95,9 +102,9 @@ export function About() {
                   </div>
                 </div>
               </div>
-            </div>
           </div>
 
+          {/* Education */}
           <div className="border-t border-zinc-800 pt-8">
             <h3 className="text-2xl font-bold text-white mb-6 flex items-center space-x-3">
               <GraduationCap className="w-6 h-6 text-emerald-400" />
@@ -116,6 +123,19 @@ export function About() {
                 <p className="text-emerald-400 mb-2">Technological University (Magway) • 2012 - 2018</p>
                 <p className="text-zinc-400">An engineering institution focused on rigorous analytical training and complex systems design. Built a strong baseline in structural problem-solving, advanced mathematics, and project endurance over a 6-year curriculum.</p>
               </div>
+            </div>
+          </div>
+
+          {/* Education image */}
+          <div className="relative">
+            <div className="absolute inset-0 bg-gradient-to-tr from-emerald-500/20 to-cyan-500/20 rounded-2xl blur-3xl transform -rotate-6" />
+            <div className="relative min-h-[380px] rounded-2xl overflow-hidden border border-zinc-800 shadow-2xl shadow-black/50">
+                <img 
+                  src={developerPhoto}
+                  alt="Developer workspace"
+                  className="w-full h-full object-cover grayscale hover:grayscale-0 transition-all duration-500"
+                />
+                <div className="absolute inset-0 bg-gradient-to-t from-zinc-950 via-zinc-950/20 to-transparent" />
             </div>
           </div>
         </motion.div>
