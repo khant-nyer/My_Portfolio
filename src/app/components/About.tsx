@@ -64,6 +64,32 @@ export function About() {
                   </div>
                 ))}
               </div>
+              </div>
+
+              {/* Image/Visual */}
+              <div className="relative h-full min-h-[420px]">
+                <div className="absolute inset-0 bg-gradient-to-tr from-emerald-500/20 to-cyan-500/20 rounded-2xl blur-3xl transform -rotate-6" />
+                <div className="relative rounded-2xl overflow-hidden border border-zinc-800 shadow-2xl shadow-black/50 h-full">
+                  <img
+                      src="https://images.unsplash.com/photo-1717659487323-7783a99bcf61?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3Nzg4Nzd8MHwxfHNlYXJjaHwxfHxwcm9mZXNzaW9uYWwlMjBwb3J0cmFpdCUyMHBlcnNvbiUyMHlvdW5nfGVufDF8fHx8MTc3Mzk3OTUxMHww&ixlib=rb-4.1.0&q=80&w=1080&utm_source=figma&utm_medium=referral"
+                      alt="John Doe Developer"
+                      className="w-full h-full object-cover grayscale hover:grayscale-0 transition-all duration-500"
+                  />
+                  <div className="absolute inset-0 bg-gradient-to-t from-zinc-950 via-zinc-950/20 to-transparent" />
+                  <div className="absolute bottom-6 left-6 right-6">
+                    <div className="bg-zinc-900/80 backdrop-blur-md border border-zinc-700 p-4 rounded-xl shadow-lg flex items-center space-x-4">
+                      <div className="bg-emerald-500/20 p-3 rounded-lg">
+                        <span className="text-2xl font-bold text-emerald-400">1+</span>
+                      </div>
+                      <div>
+                        <p className="text-white font-medium">Years of Experience</p>
+                        <p className="text-sm text-zinc-400">Continuous coding & learning</p>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
 
               <div className="border-t border-zinc-800 pt-8">
                 {/* Experience */}
