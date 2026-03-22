@@ -15,10 +15,15 @@ function AnimatedHeroIcon({
     <motion.div
       initial={{ opacity: 0, y: 10 }}
       whileInView={{ opacity: 1, y: 0 }}
-      transition={{ duration: 0.35, delay: delay * 0.2 }}
       viewport={{ once: false, amount: 0.6 }}
       className={className}
       style={{ "--draw-delay": `${delay * 0.3}s` } as CSSProperties}
+      whileHover={{ scale: 1.12, y: -4 }}
+      whileTap={{ scale: 0.96 }}
+      transition={{
+        duration: 0.35,
+        delay: delay * 0.2,
+      }}
     >
       {children}
     </motion.div>
@@ -41,6 +46,14 @@ export function Hero() {
           animation-timing-function: ease-in-out;
           animation-fill-mode: forwards;
           animation-delay: var(--draw-delay, 0s);
+        }
+
+        .hero-icons:hover .hero-line-draw-icon > * {
+          animation-name: heroLineDraw;
+          animation-duration: 0.9s;
+          animation-delay: 0s;
+          animation-fill-mode: both;
+          stroke-dashoffset: 120;
         }
 
         @keyframes heroLineDraw {
@@ -110,7 +123,7 @@ export function Hero() {
           initial={{ opacity: 0 }}
           animate={{ opacity: 1 }}
           transition={{ duration: 1, delay: 0.6 }}
-          className="mt-20 flex justify-center items-center space-x-6 md:space-x-12 opacity-60 grayscale hover:grayscale-0 transition-all duration-500"
+          className="hero-icons mt-20 flex justify-center items-center space-x-6 md:space-x-12 opacity-100 transition-all duration-300"
         >
           <AnimatedHeroIcon className="text-blue-400" delay={0}>
             <Code2 className="hero-line-draw-icon w-10 h-10" />
