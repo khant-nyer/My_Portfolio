@@ -108,7 +108,7 @@ export function Hero() {
           transition={{ duration: 0.5, delay: 0.2 }}
           className="text-xl md:text-2xl text-zinc-400 mb-10 max-w-3xl mx-auto"
         >
-          A Junior Full-Stack Developer passionate about building robust, scalable web applications and delivering exceptional user experiences.
+          A Junior Java Full-Stack Developer passionate about building robust, scalable web applications and delivering exceptional user experiences.
         </motion.p>
 
         <motion.div

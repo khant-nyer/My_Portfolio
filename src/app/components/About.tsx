@@ -1,6 +1,6 @@
 import { motion } from "motion/react";
 import { CheckCircle2, UserCircle, GraduationCap, Briefcase } from "lucide-react";
-import graduationPhoto from "../../../public/resource/GraduationPhoto.jpg";
+import graduationPhoto from "/resource/GraduationPhoto.jpg";
 
 export function About() {
   return (
