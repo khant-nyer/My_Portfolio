@@ -1,5 +1,6 @@
 import { motion } from "motion/react";
 import { CheckCircle2, UserCircle, GraduationCap, Briefcase } from "lucide-react";
+import graduationPhoto from "../../../public/resource/GraduationPhoto.jpg";
 
 export function About() {
   return (
@@ -12,7 +13,7 @@ export function About() {
               transition={{ duration: 0.5 }}
           >
             <div className="grid grid-cols-1 lg:grid-cols-2 gap-16 items-stretch">
-              <div className="space-y-12 border-t border-zinc-800 pt-8">
+              <div className="space-y-12 border-t  pt-8">
                 <div>
                   <div className="inline-flex items-center space-x-2 bg-zinc-900/50 border border-zinc-800 rounded-full px-4 py-1.5 mb-6">
                     <UserCircle className="w-4 h-4 text-cyan-400" />
@@ -24,11 +25,11 @@ export function About() {
                   </h2>
 
                   <p className="text-lg text-zinc-400 mb-6">
-                    I'm a junior full-stack developer with a strong foundation in modern web technologies. I recently transitioned into tech, bringing a fresh perspective and an insatiable curiosity for solving complex problems.
+                    I'm a junior java full-stack developer with a strong foundation in modern web technologies. I recently transitioned into tech, bringing a fresh perspective and an insatiable curiosity for solving complex problems.
                   </p>
 
                   <p className="text-lg text-zinc-400 mb-8">
-                    My journey started with front-end development, obsessing over pixel-perfect designs, and quickly expanded into back-end architecture to understand how systems communicate and scale.
+                    My journey started with back-end architecture to understand how systems communicate and scale. Quickly expanded into front-end development, obsessing over pixel-perfect designs.
                   </p>
 
                   <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
@@ -57,14 +58,14 @@ export function About() {
                   <div className="space-y-6">
                     <div className="relative pl-6 border-l-2 border-zinc-800">
                       <div className="absolute w-3 h-3 bg-cyan-500 rounded-full -left-[7px] top-1.5 ring-4 ring-zinc-950" />
-                      <h4 className="text-lg font-semibold text-white">Junior Web Developer</h4>
-                      <p className="text-cyan-400 mb-2">Tech Startup Inc. • 2024 - Present</p>
+                      <h4 className="text-lg font-semibold text-white">Freelance Junior Web Developer</h4>
+                      <p className="text-cyan-400 mb-2">WK Consults Pte Ltd • Nov 2025 - Present</p>
                       <p className="text-zinc-400">Developing and maintaining responsive web applications using React and Node.js. Collaborating with cross-functional teams to implement new UI/UX features.</p>
                     </div>
                     <div className="relative pl-6 border-l-2 border-zinc-800">
                       <div className="absolute w-3 h-3 bg-zinc-600 rounded-full -left-[7px] top-1.5 ring-4 ring-zinc-950" />
                       <h4 className="text-lg font-semibold text-white">Software Engineering Intern</h4>
-                      <p className="text-cyan-400 mb-2">Digital Agency • Summer 2023</p>
+                      <p className="text-cyan-400 mb-2">Total eBiz Solutions • September 2021 – January 2022</p>
                       <p className="text-zinc-400">Assisted in building RESTful APIs and creating reusable frontend components for multiple client projects.</p>
                     </div>
                   </div>
@@ -72,7 +73,7 @@ export function About() {
               </div>
 
               {/* First Image/Visual: Intro + Skills + Experience */}
-              <div className="relative h-full min-h-[680px]">
+              <div className="relative h-full pt-40 min-h-[680px]">
                 <div className="absolute inset-0 bg-gradient-to-tr from-emerald-500/20 to-cyan-500/20 rounded-2xl blur-3xl transform -rotate-6" />
                 <div className="relative rounded-2xl overflow-hidden border border-zinc-800 shadow-2xl shadow-black/50 h-full">
                   <img
@@ -94,6 +95,7 @@ export function About() {
                   </div>
                 </div>
               </div>
+              
             </div>
 
             <div className="grid grid-cols-1 lg:grid-cols-2 gap-16 items-stretch mt-12">
@@ -106,25 +108,25 @@ export function About() {
                   <div className="space-y-6">
                     <div className="relative pl-6 border-l-2 border-zinc-800">
                       <div className="absolute w-3 h-3 bg-emerald-500 rounded-full -left-[7px] top-1.5 ring-4 ring-zinc-950" />
-                      <h4 className="text-lg font-semibold text-white">Full-Stack Web Development Bootcamp</h4>
-                      <p className="text-emerald-400 mb-2">Tech Academy • 2023 - 2024</p>
+                      <h4 className="text-lg font-semibold text-white">Systems Analysis</h4>
+                      <p className="text-emerald-400 mb-2">Institute of Systems Science, National University of Singapore • 2021 - 2022</p>
                       <p className="text-zinc-400">Intensive 6-month program focusing on modern MERN stack development, software engineering principles, and agile methodologies.</p>
                     </div>
                     <div className="relative pl-6 border-l-2 border-zinc-800">
                       <div className="absolute w-3 h-3 bg-zinc-600 rounded-full -left-[7px] top-1.5 ring-4 ring-zinc-950" />
-                      <h4 className="text-lg font-semibold text-white">Bachelor of Science in Information Technology</h4>
-                      <p className="text-emerald-400 mb-2">State University • 2019 - 2023</p>
+                      <h4 className="text-lg font-semibold text-white">Bachelor of Engineering (Mechanical)</h4>
+                      <p className="text-emerald-400 mb-2">Technological University • 2012 - 2018</p>
                       <p className="text-zinc-400">Foundation in computer science principles, database design, and systems analysis.</p>
                     </div>
                   </div>
                 </div>
 
                 {/* Second Image/Visual: Education */}
-                <div className="relative h-full min-h-[420px]">
+                <div className="relative h-full">
                   <div className="absolute inset-0 bg-gradient-to-tr from-cyan-500/20 to-emerald-500/20 rounded-2xl blur-3xl transform rotate-6" />
                   <div className="relative rounded-2xl overflow-hidden border border-zinc-800 shadow-2xl shadow-black/50 h-full">
                     <img
-                        src="https://images.unsplash.com/photo-1541339907198-e08756dedf3f?auto=format&fit=crop&w=1200&q=80"
+                        src={graduationPhoto}
                         alt="Education setting"
                         className="w-full h-full object-cover grayscale hover:grayscale-0 transition-all duration-500"
                     />
