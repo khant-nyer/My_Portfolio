@@ -109,7 +109,38 @@ export function Hero() {
           className="text-xl md:text-2xl text-zinc-400 mb-10 max-w-3xl mx-auto"
         >
           A Junior Java Full-Stack Developer passionate about building robust, scalable web applications and delivering exceptional user experiences.
+          </motion.p>
+
+        <motion.div
+            initial={{ opacity: 0 }}
+            animate={{ opacity: 1 }}
+            transition={{ duration: 1, delay: 0.6 }}
+            className="hero-icons mt-10 flex justify-center items-center space-x-6 md:space-x-12 opacity-100 transition-all duration-300"
+        >
+          <AnimatedHeroIcon className="text-blue-400" delay={0}>
+            <Code2 className="hero-line-draw-icon w-10 h-10" />
+          </AnimatedHeroIcon>
+          <AnimatedHeroIcon className="text-emerald-400" delay={1}>
+            <TerminalSquare className="hero-line-draw-icon w-10 h-10" />
+          </AnimatedHeroIcon>
+          <AnimatedHeroIcon className="text-yellow-400" delay={2}>
+            <Database className="hero-line-draw-icon w-10 h-10" />
+          </AnimatedHeroIcon>
+          <AnimatedHeroIcon className="text-cyan-400" delay={3}>
+            <FileCode2 className="hero-line-draw-icon w-10 h-10" />
+          </AnimatedHeroIcon>
+        </motion.div>
+
+        <motion.p
+            initial={{ opacity: 0, y: 20 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.5, delay: 0.2 }}
+            className="text-xl md:text-2xl text-zinc-400 mb-10 max-w-3xl mx-auto pt-10"
+        >
+
+          I completed my System Analysis studies at NUS-ISS in 2022, after which I faced significant challenges returning to my career — both due to the ongoing civil conflict in Myanmar following the 2021 military coup, and the need to care for my family member through multiple surgeries. Despite these circumstances, I remained committed to my professional path, and I'm now fully focused on resuming my journey as a software engineer — bringing a solid analytical foundation, resilience, and a genuine drive to contribute and grow.
         </motion.p>
+
 
         <motion.div
           initial={{ opacity: 0, y: 20 }}
