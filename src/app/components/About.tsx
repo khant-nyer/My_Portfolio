@@ -1,5 +1,5 @@
 import { motion } from "motion/react";
-import { CheckCircle2, UserCircle, GraduationCap } from "lucide-react";
+import {CheckCircle2, UserCircle, GraduationCap, Briefcase} from "lucide-react";
 
 export function About() {
   return (
@@ -46,7 +46,26 @@ export function About() {
                 </div>
               ))}
             </div>
-
+            <div>
+              <h3 className="text-2xl font-bold text-white mb-6 flex items-center space-x-3">
+                <Briefcase className="w-6 h-6 text-cyan-400" />
+                <span>Experience</span>
+              </h3>
+              <div className="space-y-6">
+                <div className="relative pl-6 border-l-2 border-zinc-800">
+                  <div className="absolute w-3 h-3 bg-cyan-500 rounded-full -left-[7px] top-1.5 ring-4 ring-zinc-950" />
+                  <h4 className="text-lg font-semibold text-white">Freelance Web Developer • Nov 2025 - Present</h4>
+                  <p className="text-cyan-400 mb-2">WK Consults Pte Ltd</p>
+                  <p className="text-zinc-400">Developing and maintaining responsive web applications using React and Node.js. Collaborating with cross-functional teams to implement new UI/UX features.</p>
+                </div>
+                <div className="relative pl-6 border-l-2 border-zinc-800">
+                  <div className="absolute w-3 h-3 bg-zinc-600 rounded-full -left-[7px] top-1.5 ring-4 ring-zinc-950" />
+                  <h4 className="text-lg font-semibold text-white">Software Engineering Intern</h4>
+                  <p className="text-cyan-400 mb-2">Total eBiz Solutions • Summer 2022</p>
+                  <p className="text-zinc-400">Assisted in building RESTful APIs and creating reusable frontend components for multiple client projects.</p>
+                </div>
+              </div>
+            </div>
             <div className="border-t border-zinc-800 pt-8">
               <h3 className="text-2xl font-bold text-white mb-6 flex items-center space-x-3">
                 <GraduationCap className="w-6 h-6 text-emerald-400" />
@@ -72,10 +91,10 @@ export function About() {
           {/* Image/Visual */}
           <div className="relative">
             <div className="absolute inset-0 bg-gradient-to-tr from-emerald-500/20 to-cyan-500/20 rounded-2xl blur-3xl transform -rotate-6" />
-            <div className="relative rounded-2xl overflow-hidden border border-zinc-800 shadow-2xl shadow-black/50 aspect-[4/5]">
+            <div className="h-max relative rounded-2xl overflow-hidden border border-zinc-800 shadow-2xl shadow-black/50 aspect-[4/5]">
               <img 
-                src="https://images.unsplash.com/photo-1717659487323-7783a99bcf61?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3Nzg4Nzd8MHwxfHNlYXJjaHwxfHxwcm9mZXNzaW9uYWwlMjBwb3J0cmFpdCUyMHBlcnNvbiUyMHlvdW5nfGVufDF8fHx8MTc3Mzk3OTUxMHww&ixlib=rb-4.1.0&q=80&w=1080&utm_source=figma&utm_medium=referral" 
-                alt="John Doe Developer" 
+                src="https://images.unsplash.com/photo-1717659487323-7783a99bcf61?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3Nzg4Nzd8MHwxfHNlYXJjaHwxfHxwcm9mZXNzaW9uYWwlMjBwb3J0cmFpdCUyMHBlcnNvbiUyMHlvdW5nfGVufDF8fHx8MTc3Mzk3OTUxMHww&ixlib=rb-4.1.0&q=80&w=1080&utm_source=figma&utm_medium=referral"
+                alt="Khant Nyer Developer"
                 className="w-full h-full object-cover grayscale hover:grayscale-0 transition-all duration-500"
               />
               <div className="absolute inset-0 bg-gradient-to-t from-zinc-950 via-zinc-950/20 to-transparent" />
