@@ -1,5 +1,6 @@
 import { motion } from "motion/react";
 import {Mail, MapPin, Phone} from "lucide-react";
+import developerImage from "../../resource/software-developer.jpg";
 
 export function Contact() {
   return (
@@ -65,7 +66,7 @@ export function Contact() {
           >
             <div className="relative z-10 h-full min-h-[520px] rounded-xl overflow-hidden border border-zinc-800">
               <img
-                src="https://github.com/khant-nyer/My_Portfolio/blob/main/src/resource/software-developer.jpg"
+                src={developerImage}
                 alt="Workspace setup"
                 className="w-full h-full object-cover"
               />
