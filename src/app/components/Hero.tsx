@@ -1,5 +1,29 @@
+import { type CSSProperties, type ReactNode } from "react";
 import { motion } from "motion/react";
-import { ArrowRight, Code2, TerminalSquare, Database, FileCode2 } from "lucide-react";
+import { ArrowRight, Code2, Database, FileCode2, TerminalSquare } from "lucide-react";
+
+function AnimatedHeroIcon({
+  children,
+  className,
+  delay,
+}: {
+  children: ReactNode;
+  className: string;
+  delay: number;
+}) {
+  return (
+    <motion.div
+      initial={{ opacity: 0, y: 10 }}
+      whileInView={{ opacity: 1, y: 0 }}
+      transition={{ duration: 0.35, delay: delay * 0.2 }}
+      viewport={{ once: false, amount: 0.6 }}
+      className={className}
+      style={{ "--draw-delay": `${delay * 0.3}s` } as CSSProperties}
+    >
+      {children}
+    </motion.div>
+  );
+}
 
 export function Hero() {
   const scrollToProjects = () => {
@@ -8,12 +32,30 @@ export function Hero() {
 
   return (
     <section id="hero" className="relative min-h-[90vh] flex items-center justify-center overflow-hidden py-20 px-4 sm:px-6 lg:px-8">
+      <style>{`
+        .hero-line-draw-icon > * {
+          stroke-dasharray: 120;
+          stroke-dashoffset: 120;
+          animation-name: heroLineDraw;
+          animation-duration: 1.5s;
+          animation-timing-function: ease-in-out;
+          animation-fill-mode: forwards;
+          animation-delay: var(--draw-delay, 0s);
+        }
+
+        @keyframes heroLineDraw {
+          to {
+            stroke-dashoffset: 0;
+          }
+        }
+      `}</style>
+
       {/* Background decoration */}
       <div className="absolute inset-0 z-0">
         <div className="absolute inset-0 bg-zinc-950" />
         <div className="absolute top-1/4 -left-1/4 w-[500px] h-[500px] bg-emerald-500/10 rounded-full blur-[120px]" />
         <div className="absolute bottom-1/4 -right-1/4 w-[500px] h-[500px] bg-cyan-500/10 rounded-full blur-[120px]" />
-        
+
         {/* Abstract grid */}
         <div className="absolute inset-0 bg-[linear-gradient(to_right,#4f4f4f2e_1px,transparent_1px),linear-gradient(to_bottom,#4f4f4f2e_1px,transparent_1px)] bg-[size:14px_24px] [mask-image:radial-gradient(ellipse_60%_50%_at_50%_0%,#000_70%,transparent_100%)]" />
       </div>
@@ -62,18 +104,26 @@ export function Hero() {
             Contact Me
           </a>
         </motion.div>
-        
+
         {/* Floating tech icons */}
-        <motion.div 
+        <motion.div
           initial={{ opacity: 0 }}
           animate={{ opacity: 1 }}
           transition={{ duration: 1, delay: 0.6 }}
           className="mt-20 flex justify-center items-center space-x-6 md:space-x-12 opacity-60 grayscale hover:grayscale-0 transition-all duration-500"
         >
-           <Code2 className="w-10 h-10 text-blue-400" />
-           <TerminalSquare className="w-10 h-10 text-emerald-400" />
-           <Database className="w-10 h-10 text-yellow-400" />
-           <FileCode2 className="w-10 h-10 text-cyan-400" />
+          <AnimatedHeroIcon className="text-blue-400" delay={0}>
+            <Code2 className="hero-line-draw-icon w-10 h-10" />
+          </AnimatedHeroIcon>
+          <AnimatedHeroIcon className="text-emerald-400" delay={1}>
+            <TerminalSquare className="hero-line-draw-icon w-10 h-10" />
+          </AnimatedHeroIcon>
+          <AnimatedHeroIcon className="text-yellow-400" delay={2}>
+            <Database className="hero-line-draw-icon w-10 h-10" />
+          </AnimatedHeroIcon>
+          <AnimatedHeroIcon className="text-cyan-400" delay={3}>
+            <FileCode2 className="hero-line-draw-icon w-10 h-10" />
+          </AnimatedHeroIcon>
         </motion.div>
       </div>
     </section>
