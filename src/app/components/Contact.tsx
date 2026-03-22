@@ -1,6 +1,6 @@
 import { motion } from "motion/react";
 import {Mail, MapPin, Phone} from "lucide-react";
-import developerImage from "../../../public/resource/software-developer.jpg";
+import developerImage from "/resource/software-developer.jpg";
 
 export function Contact() {
   return (

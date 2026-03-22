@@ -1,6 +1,6 @@
 import { motion } from "motion/react";
 import { CheckCircle2, UserCircle, GraduationCap, Briefcase } from "lucide-react";
-import graduationPhoto from "../../../public/resource/GraduationPhoto.jpg";
+import graduationPhoto from "/resource/GraduationPhoto.jpg";
 
 export function About() {
   return (
@@ -60,13 +60,13 @@ export function About() {
                       <div className="absolute w-3 h-3 bg-cyan-500 rounded-full -left-[7px] top-1.5 ring-4 ring-zinc-950" />
                       <h4 className="text-lg font-semibold text-white">Freelance Junior Web Developer</h4>
                       <p className="text-cyan-400 mb-2">WK Consults Pte Ltd • Nov 2025 - Present</p>
-                      <p className="text-zinc-400">Developing and maintaining responsive web applications using React and Node.js. Collaborating with cross-functional teams to implement new UI/UX features.</p>
+                      <p className="text-zinc-400">Engaged as a freelance developer to design and build a Personal Loan Finder web application from the ground up. Took full ownership of the project lifecycle — from initial architecture and UI design through to development, testing, and final delivery — using React.js. The application enables users to browse, compare, and identify suitable personal loan options, delivering a seamless and intuitive experience.</p>
                     </div>
                     <div className="relative pl-6 border-l-2 border-zinc-800">
                       <div className="absolute w-3 h-3 bg-zinc-600 rounded-full -left-[7px] top-1.5 ring-4 ring-zinc-950" />
                       <h4 className="text-lg font-semibold text-white">Software Engineering Intern</h4>
                       <p className="text-cyan-400 mb-2">Total eBiz Solutions • September 2021 – January 2022</p>
-                      <p className="text-zinc-400">Assisted in building RESTful APIs and creating reusable frontend components for multiple client projects.</p>
+                      <p className="text-zinc-400">This internship at Total eBiz Solutions provided valuable hands-on experience in both business analysis and software development. Working across dual roles strengthened my ability to bridge the gap between client needs and technical solutions, while developing practical skills in requirements gathering, documentation, UAT, and .NET system development — laying a solid foundation for a career in IT.</p>
                     </div>
                   </div>
                 </div>
@@ -110,13 +110,19 @@ export function About() {
                       <div className="absolute w-3 h-3 bg-emerald-500 rounded-full -left-[7px] top-1.5 ring-4 ring-zinc-950" />
                       <h4 className="text-lg font-semibold text-white">Systems Analysis</h4>
                       <p className="text-emerald-400 mb-2">Institute of Systems Science, National University of Singapore • 2021 - 2022</p>
-                      <p className="text-zinc-400">Intensive 6-month program focusing on modern MERN stack development, software engineering principles, and agile methodologies.</p>
+                      <p className="text-zinc-400">A leading technology institute under the National University of Singapore,
+                        NUS-ISS specialises in applied IT education and professional development.
+                        Completed the Systems Analysis programme, gaining hands-on experience in
+                        software engineering, systems design, and agile methodologies.</p>
                     </div>
                     <div className="relative pl-6 border-l-2 border-zinc-800">
                       <div className="absolute w-3 h-3 bg-zinc-600 rounded-full -left-[7px] top-1.5 ring-4 ring-zinc-950" />
                       <h4 className="text-lg font-semibold text-white">Bachelor of Engineering (Mechanical)</h4>
                       <p className="text-emerald-400 mb-2">Technological University • 2012 - 2018</p>
-                      <p className="text-zinc-400">Foundation in computer science principles, database design, and systems analysis.</p>
+                      <p className="text-zinc-400">A public university under Myanmar's Ministry of Science and Technology,
+                        offering engineering programmes across multiple disciplines. Graduated with
+                        a Bachelor of Engineering in Mechanical Engineering, building a strong
+                        analytical and problem-solving foundation.</p>
                     </div>
                   </div>
                 </div>
