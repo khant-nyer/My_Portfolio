@@ -7,7 +7,7 @@ const projects = [
     title: "Personal Loan Finder",
     description: "A full-stack web application for finding personal loan.",
     image: "https://personalloanfinder.co/wp-content/uploads/2025/11/asian-women-discover_best-LML-in-SG.png",
-    tags: ["React", "Tailwind", "Node.js", "AWS Cognito", "Next.js"],
+    tags: ["React", "Tailwind", "TypeScript", "Node.js", "Next.js", "AWS"],
     liveUrl: "https://personalloanfinder.co/",
     githubUrl: "https://github.com"
   },
@@ -15,7 +15,7 @@ const projects = [
     title: "Cooking App",
     description: "This is my personal project. A cooking app for those who cannot cook.",
     image: "https://i.fbcd.co/products/resized/resized-750-500/chef-hat-line-converted-01-d64572f96eb833f8a822a06e674aebc361e216b8ef2b9445606f19d2d36fa953.jpg",
-    tags: ["React", "TypeScript", "Java", "PostgreSQL", "AWS Cognito"],
+    tags: ["React", "TypeScript", "Node.js", "Java", "Spring Boot", "PostgreSQL", "AWS Cognito", "Render"],
     liveUrl: "https://cookingapp-frontend.onrender.com",
     githubUrl: "https://github.com/khant-nyer/CookingApp.git"
   },
