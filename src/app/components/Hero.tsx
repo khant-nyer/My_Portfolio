@@ -1,5 +1,91 @@
+import { Children, isValidElement, type ReactElement, type SVGProps } from "react";
 import { motion } from "motion/react";
-import { ArrowRight, Code2, TerminalSquare, Database, FileCode2 } from "lucide-react";
+import { ArrowRight, Code2, Database, FileCode2, TerminalSquare, type LucideIcon } from "lucide-react";
+
+const draw = {
+  hidden: {
+    pathLength: 0,
+    fillOpacity: 0,
+    strokeOpacity: 1,
+  },
+  visible: (custom: { i: number }) => ({
+    pathLength: 1,
+    fillOpacity: 0,
+    strokeOpacity: 1,
+    transition: {
+      pathLength: {
+        delay: custom.i * 0.3,
+        duration: 1.5,
+        ease: "easeInOut",
+      },
+      fillOpacity: {
+        delay: 2.2,
+        duration: 0.8,
+        ease: "easeOut",
+      },
+      strokeOpacity: {
+        delay: 2.2,
+        duration: 0.8,
+        ease: "easeOut",
+      },
+    },
+  }),
+};
+
+const motionElements = {
+  path: motion.path,
+  line: motion.line,
+  polyline: motion.polyline,
+  polygon: motion.polygon,
+  rect: motion.rect,
+  circle: motion.circle,
+  ellipse: motion.ellipse,
+};
+
+function DrawnIcon({ Icon, className, index }: { Icon: LucideIcon; className: string; index: number }) {
+  const icon = (
+    <Icon
+      className={className}
+      size={40}
+      strokeWidth={2}
+      absoluteStrokeWidth
+    />
+  ) as ReactElement<SVGProps<SVGSVGElement>>;
+
+  const animatedChildren = Children.map(icon.props.children, (child, childIndex) => {
+    if (!isValidElement(child) || typeof child.type !== "string") return child;
+
+    const MotionElement = motionElements[child.type as keyof typeof motionElements];
+
+    if (!MotionElement) return child;
+
+    return (
+      <MotionElement
+        {...child.props}
+        variants={draw}
+        custom={{ i: index + childIndex * 0.12 }}
+        fill="none"
+        stroke="currentColor"
+        strokeLinecap="round"
+        strokeLinejoin="round"
+      />
+    );
+  });
+
+  return (
+    <motion.svg
+      viewBox={icon.props.viewBox}
+      className={icon.props.className}
+      initial="hidden"
+      whileInView="visible"
+      viewport={{ once: false, amount: 0.6 }}
+      fill="none"
+      xmlns="http://www.w3.org/2000/svg"
+    >
+      {animatedChildren}
+    </motion.svg>
+  );
+}
 
 export function Hero() {
   const scrollToProjects = () => {
@@ -13,7 +99,7 @@ export function Hero() {
         <div className="absolute inset-0 bg-zinc-950" />
         <div className="absolute top-1/4 -left-1/4 w-[500px] h-[500px] bg-emerald-500/10 rounded-full blur-[120px]" />
         <div className="absolute bottom-1/4 -right-1/4 w-[500px] h-[500px] bg-cyan-500/10 rounded-full blur-[120px]" />
-        
+
         {/* Abstract grid */}
         <div className="absolute inset-0 bg-[linear-gradient(to_right,#4f4f4f2e_1px,transparent_1px),linear-gradient(to_bottom,#4f4f4f2e_1px,transparent_1px)] bg-[size:14px_24px] [mask-image:radial-gradient(ellipse_60%_50%_at_50%_0%,#000_70%,transparent_100%)]" />
       </div>
@@ -62,18 +148,18 @@ export function Hero() {
             Contact Me
           </a>
         </motion.div>
-        
+
         {/* Floating tech icons */}
-        <motion.div 
+        <motion.div
           initial={{ opacity: 0 }}
           animate={{ opacity: 1 }}
           transition={{ duration: 1, delay: 0.6 }}
           className="mt-20 flex justify-center items-center space-x-6 md:space-x-12 opacity-60 grayscale hover:grayscale-0 transition-all duration-500"
         >
-           <Code2 className="w-10 h-10 text-blue-400" />
-           <TerminalSquare className="w-10 h-10 text-emerald-400" />
-           <Database className="w-10 h-10 text-yellow-400" />
-           <FileCode2 className="w-10 h-10 text-cyan-400" />
+          <DrawnIcon Icon={Code2} className="w-10 h-10 text-blue-400" index={0} />
+          <DrawnIcon Icon={TerminalSquare} className="w-10 h-10 text-emerald-400" index={1} />
+          <DrawnIcon Icon={Database} className="w-10 h-10 text-yellow-400" index={2} />
+          <DrawnIcon Icon={FileCode2} className="w-10 h-10 text-cyan-400" index={3} />
         </motion.div>
       </div>
     </section>
