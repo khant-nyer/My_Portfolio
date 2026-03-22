@@ -45,18 +45,26 @@ export function Hero() {
           animation-duration: 1.5s;
           animation-timing-function: ease-in-out;
           animation-fill-mode: forwards;
-          animation-delay: var(--draw-delay, 0s);
+          animation-delay: calc(var(--draw-delay, 0s) + 0.2s);
         }
 
-        .hero-icons:hover .hero-line-draw-icon > * {
-          animation-name: heroLineDraw;
+        .hero-line-draw-icon:hover > * {
+          animation-name: heroLineRedraw;
           animation-duration: 0.9s;
-          animation-delay: 0s;
+          animation-timing-function: ease-in-out;
           animation-fill-mode: both;
-          stroke-dashoffset: 120;
         }
 
         @keyframes heroLineDraw {
+          to {
+            stroke-dashoffset: 0;
+          }
+        }
+
+        @keyframes heroLineRedraw {
+          from {
+            stroke-dashoffset: 120;
+          }
           to {
             stroke-dashoffset: 0;
           }
