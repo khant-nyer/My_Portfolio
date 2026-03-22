@@ -103,6 +103,7 @@ export function About() {
                 </div>
               </div>
           </div>
+          </div>
 
           {/* Education */}
           <div className="border-t border-zinc-800 pt-8">
