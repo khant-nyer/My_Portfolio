@@ -1,89 +1,27 @@
-import { Children, isValidElement, type ReactElement, type SVGProps } from "react";
+import { type CSSProperties, type ReactNode } from "react";
 import { motion } from "motion/react";
-import { ArrowRight, Code2, Database, FileCode2, TerminalSquare, type LucideIcon } from "lucide-react";
+import { ArrowRight, Code2, Database, FileCode2, TerminalSquare } from "lucide-react";
 
-const draw = {
-  hidden: {
-    pathLength: 0,
-    fillOpacity: 0,
-    strokeOpacity: 1,
-  },
-  visible: (custom: { i: number }) => ({
-    pathLength: 1,
-    fillOpacity: 0,
-    strokeOpacity: 1,
-    transition: {
-      pathLength: {
-        delay: custom.i * 0.3,
-        duration: 1.5,
-        ease: "easeInOut",
-      },
-      fillOpacity: {
-        delay: 2.2,
-        duration: 0.8,
-        ease: "easeOut",
-      },
-      strokeOpacity: {
-        delay: 2.2,
-        duration: 0.8,
-        ease: "easeOut",
-      },
-    },
-  }),
-};
-
-const motionElements = {
-  path: motion.path,
-  line: motion.line,
-  polyline: motion.polyline,
-  polygon: motion.polygon,
-  rect: motion.rect,
-  circle: motion.circle,
-  ellipse: motion.ellipse,
-};
-
-function DrawnIcon({ Icon, className, index }: { Icon: LucideIcon; className: string; index: number }) {
-  const icon = (
-    <Icon
-      className={className}
-      size={40}
-      strokeWidth={2}
-      absoluteStrokeWidth
-    />
-  ) as ReactElement<SVGProps<SVGSVGElement>>;
-
-  const animatedChildren = Children.map(icon.props.children, (child, childIndex) => {
-    if (!isValidElement(child) || typeof child.type !== "string") return child;
-
-    const MotionElement = motionElements[child.type as keyof typeof motionElements];
-
-    if (!MotionElement) return child;
-
-    return (
-      <MotionElement
-        {...child.props}
-        variants={draw}
-        custom={{ i: index + childIndex * 0.12 }}
-        fill="none"
-        stroke="currentColor"
-        strokeLinecap="round"
-        strokeLinejoin="round"
-      />
-    );
-  });
-
+function AnimatedHeroIcon({
+  children,
+  className,
+  delay,
+}: {
+  children: ReactNode;
+  className: string;
+  delay: number;
+}) {
   return (
-    <motion.svg
-      viewBox={icon.props.viewBox}
-      className={icon.props.className}
-      initial="hidden"
-      whileInView="visible"
+    <motion.div
+      initial={{ opacity: 0, y: 10 }}
+      whileInView={{ opacity: 1, y: 0 }}
+      transition={{ duration: 0.35, delay: delay * 0.2 }}
       viewport={{ once: false, amount: 0.6 }}
-      fill="none"
-      xmlns="http://www.w3.org/2000/svg"
+      className={className}
+      style={{ "--draw-delay": `${delay * 0.3}s` } as CSSProperties}
     >
-      {animatedChildren}
-    </motion.svg>
+      {children}
+    </motion.div>
   );
 }
 
@@ -94,6 +32,24 @@ export function Hero() {
 
   return (
     <section id="hero" className="relative min-h-[90vh] flex items-center justify-center overflow-hidden py-20 px-4 sm:px-6 lg:px-8">
+      <style>{`
+        .hero-line-draw-icon > * {
+          stroke-dasharray: 120;
+          stroke-dashoffset: 120;
+          animation-name: heroLineDraw;
+          animation-duration: 1.5s;
+          animation-timing-function: ease-in-out;
+          animation-fill-mode: forwards;
+          animation-delay: var(--draw-delay, 0s);
+        }
+
+        @keyframes heroLineDraw {
+          to {
+            stroke-dashoffset: 0;
+          }
+        }
+      `}</style>
+
       {/* Background decoration */}
       <div className="absolute inset-0 z-0">
         <div className="absolute inset-0 bg-zinc-950" />
@@ -156,10 +112,18 @@ export function Hero() {
           transition={{ duration: 1, delay: 0.6 }}
           className="mt-20 flex justify-center items-center space-x-6 md:space-x-12 opacity-60 grayscale hover:grayscale-0 transition-all duration-500"
         >
-          <DrawnIcon Icon={Code2} className="w-10 h-10 text-blue-400" index={0} />
-          <DrawnIcon Icon={TerminalSquare} className="w-10 h-10 text-emerald-400" index={1} />
-          <DrawnIcon Icon={Database} className="w-10 h-10 text-yellow-400" index={2} />
-          <DrawnIcon Icon={FileCode2} className="w-10 h-10 text-cyan-400" index={3} />
+          <AnimatedHeroIcon className="text-blue-400" delay={0}>
+            <Code2 className="hero-line-draw-icon w-10 h-10" />
+          </AnimatedHeroIcon>
+          <AnimatedHeroIcon className="text-emerald-400" delay={1}>
+            <TerminalSquare className="hero-line-draw-icon w-10 h-10" />
+          </AnimatedHeroIcon>
+          <AnimatedHeroIcon className="text-yellow-400" delay={2}>
+            <Database className="hero-line-draw-icon w-10 h-10" />
+          </AnimatedHeroIcon>
+          <AnimatedHeroIcon className="text-cyan-400" delay={3}>
+            <FileCode2 className="hero-line-draw-icon w-10 h-10" />
+          </AnimatedHeroIcon>
         </motion.div>
       </div>
     </section>
