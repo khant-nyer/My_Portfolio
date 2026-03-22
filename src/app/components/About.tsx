@@ -34,7 +34,11 @@ export function About() {
             <p className="text-lg text-zinc-400 mb-8">
               My journey started with back-end architecture to understand how systems communicate and scale, quickly expanded into front-end development, obsessing over pixel-perfect designs.
             </p>
+          </div>
 
+          {/* Skills + Experience with side image */}
+          <div className="grid grid-cols-1 lg:grid-cols-2 gap-10 lg:gap-16 items-start">
+            <div>
             <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 mb-10">
               {[
                 "Clean & Maintainable Code",
