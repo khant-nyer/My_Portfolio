@@ -1,4 +1,4 @@
-import { type CSSProperties, type ReactNode } from "react";
+import { cloneElement, isValidElement, useState, type CSSProperties, type ReactElement } from "react";
 import { motion } from "motion/react";
 import { ArrowRight, Code2, Database, FileCode2, TerminalSquare } from "lucide-react";
 
@@ -7,15 +7,25 @@ function AnimatedHeroIcon({
   className,
   delay,
 }: {
-  children: ReactNode;
+  children: ReactElement<{ className?: string }>;
   className: string;
   delay: number;
 }) {
+  const [isInView, setIsInView] = useState(false);
+
+  const icon = isValidElement(children)
+    ? cloneElement(children, {
+        className: `${children.props.className ?? ""} ${isInView ? "hero-line-draw-icon--visible" : ""}`.trim(),
+      })
+    : children;
+
   return (
     <motion.div
       initial={{ opacity: 0, y: 10 }}
       whileInView={{ opacity: 1, y: 0 }}
       viewport={{ once: false, amount: 0.6 }}
+      onViewportEnter={() => setIsInView(true)}
+      onViewportLeave={() => setIsInView(false)}
       className={className}
       style={{ "--draw-delay": `${delay * 0.3}s` } as CSSProperties}
       whileHover={{ scale: 1.12, y: -4 }}
@@ -25,12 +35,64 @@ function AnimatedHeroIcon({
         delay: delay * 0.2,
       }}
     >
-      {children}
+      {icon}
+    </motion.div>
+  );
+}
+
+function HeroIconRow({ className }: { className: string }) {
+  return (
+    <motion.div
+      initial={{ opacity: 0 }}
+      animate={{ opacity: 1 }}
+      transition={{ duration: 1, delay: 0.6 }}
+      className={className}
+    >
+      <AnimatedHeroIcon className="text-blue-400" delay={0}>
+        <Code2 className="w-10 h-10" />
+      </AnimatedHeroIcon>
+      <AnimatedHeroIcon className="text-emerald-400" delay={1}>
+        <TerminalSquare className="w-10 h-10" />
+      </AnimatedHeroIcon>
+      <AnimatedHeroIcon className="text-yellow-400" delay={2}>
+        <Database className="w-10 h-10" />
+      </AnimatedHeroIcon>
+      <AnimatedHeroIcon className="text-cyan-400" delay={3}>
+        <FileCode2 className="w-10 h-10" />
+      </AnimatedHeroIcon>
+    </motion.div>
+  );
+}
+
+function HeroInfoToggleButton({
+  label,
+  onClick,
+  className,
+}: {
+  label: "Learn more" | "Show less";
+  onClick: () => void;
+  className: string;
+}) {
+  return (
+    <motion.div
+      initial={{ opacity: 0, y: 20 }}
+      animate={{ opacity: 1, y: 0 }}
+      transition={{ duration: 0.5, delay: 0.25 }}
+      className={className}
+    >
+      <button
+        onClick={onClick}
+        className="inline-flex items-center rounded-lg border border-zinc-700 bg-zinc-900/60 px-5 py-2.5 text-sm font-medium text-zinc-100 transition-colors hover:bg-zinc-800"
+      >
+        {label}
+      </button>
     </motion.div>
   );
 }
 
 export function Hero() {
+  const [showLearnMore, setShowLearnMore] = useState(false);
+
   const scrollToProjects = () => {
     document.getElementById("projects")?.scrollIntoView({ behavior: "smooth" });
   };
@@ -38,7 +100,7 @@ export function Hero() {
   return (
     <section id="hero" className="relative min-h-[90vh] flex items-center justify-center overflow-hidden py-20 px-4 sm:px-6 lg:px-8">
       <style>{`
-        .hero-line-draw-icon > * {
+        .hero-line-draw-icon--visible > * {
           stroke-dasharray: 120;
           stroke-dashoffset: 120;
           animation-name: heroLineDraw;
@@ -48,7 +110,7 @@ export function Hero() {
           animation-delay: calc(var(--draw-delay, 0s) + 0.2s);
         }
 
-        .hero-line-draw-icon:hover > * {
+        .hero-line-draw-icon--visible:hover > * {
           animation-name: heroLineRedraw;
           animation-duration: 0.9s;
           animation-timing-function: ease-in-out;
@@ -109,37 +171,26 @@ export function Hero() {
           className="text-xl md:text-2xl text-zinc-400 mb-10 max-w-3xl mx-auto"
         >
           A Junior Java Full-Stack Developer passionate about building robust, scalable web applications and delivering exceptional user experiences.
-          </motion.p>
-
-        <motion.div
-            initial={{ opacity: 0 }}
-            animate={{ opacity: 1 }}
-            transition={{ duration: 1, delay: 0.6 }}
-            className="hero-icons mt-10 flex justify-center items-center space-x-6 md:space-x-12 opacity-100 transition-all duration-300"
-        >
-          <AnimatedHeroIcon className="text-blue-400" delay={0}>
-            <Code2 className="hero-line-draw-icon w-10 h-10" />
-          </AnimatedHeroIcon>
-          <AnimatedHeroIcon className="text-emerald-400" delay={1}>
-            <TerminalSquare className="hero-line-draw-icon w-10 h-10" />
-          </AnimatedHeroIcon>
-          <AnimatedHeroIcon className="text-yellow-400" delay={2}>
-            <Database className="hero-line-draw-icon w-10 h-10" />
-          </AnimatedHeroIcon>
-          <AnimatedHeroIcon className="text-cyan-400" delay={3}>
-            <FileCode2 className="hero-line-draw-icon w-10 h-10" />
-          </AnimatedHeroIcon>
-        </motion.div>
-
-        <motion.p
-            initial={{ opacity: 0, y: 20 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.5, delay: 0.2 }}
-            className="text-xl md:text-2xl text-zinc-400 mb-10 max-w-3xl mx-auto pt-10"
-        >
-
-          I completed my System Analysis studies at NUS-ISS in 2022, after which I faced significant challenges returning to my career — both due to the ongoing civil conflict in Myanmar following the 2021 military coup, and the need to care for my family member through multiple surgeries. Despite these circumstances, I remained committed to my professional path, and I'm now fully focused on resuming my journey as a software engineer — bringing a solid analytical foundation, resilience, and a genuine drive to contribute and grow.
         </motion.p>
+
+        {!showLearnMore && (
+          <HeroInfoToggleButton label="Learn more" onClick={() => setShowLearnMore(true)} className="mb-6" />
+        )}
+
+        {showLearnMore && (
+          <>
+            <HeroIconRow className="hero-icons mt-10 flex items-center justify-center space-x-6 opacity-100 transition-all duration-300 md:space-x-12" />
+            <motion.p
+              initial={{ opacity: 0, y: 20 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.5, delay: 0.2 }}
+              className="text-xl md:text-2xl text-zinc-400 mb-6 max-w-3xl mx-auto pt-10"
+            >
+              I completed my System Analysis studies at NUS-ISS in 2022, after which I faced significant challenges returning to my career — both due to the ongoing civil conflict in Myanmar following the 2021 military coup, and the need to care for my family member through multiple surgeries. Despite these circumstances, I remained committed to my professional path, and I'm now fully focused on resuming my journey as a software engineer — bringing a solid analytical foundation, resilience, and a genuine drive to contribute and grow.
+            </motion.p>
+            <HeroInfoToggleButton label="Show less" onClick={() => setShowLearnMore(false)} className="mb-10" />
+          </>
+        )}
 
 
         <motion.div
@@ -158,25 +209,7 @@ export function Hero() {
         </motion.div>
 
         {/* Floating tech icons */}
-        <motion.div
-          initial={{ opacity: 0 }}
-          animate={{ opacity: 1 }}
-          transition={{ duration: 1, delay: 0.6 }}
-          className="hero-icons mt-20 flex justify-center items-center space-x-6 md:space-x-12 opacity-100 transition-all duration-300"
-        >
-          <AnimatedHeroIcon className="text-blue-400" delay={0}>
-            <Code2 className="hero-line-draw-icon w-10 h-10" />
-          </AnimatedHeroIcon>
-          <AnimatedHeroIcon className="text-emerald-400" delay={1}>
-            <TerminalSquare className="hero-line-draw-icon w-10 h-10" />
-          </AnimatedHeroIcon>
-          <AnimatedHeroIcon className="text-yellow-400" delay={2}>
-            <Database className="hero-line-draw-icon w-10 h-10" />
-          </AnimatedHeroIcon>
-          <AnimatedHeroIcon className="text-cyan-400" delay={3}>
-            <FileCode2 className="hero-line-draw-icon w-10 h-10" />
-          </AnimatedHeroIcon>
-        </motion.div>
+        <HeroIconRow className="hero-icons mt-20 flex items-center justify-center space-x-6 opacity-100 transition-all duration-300 md:space-x-12" />
       </div>
     </section>
   );
