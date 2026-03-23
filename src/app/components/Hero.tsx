@@ -64,6 +64,30 @@ function HeroIconRow({ className }: { className: string }) {
   );
 }
 
+function HeroIconRow({ className }: { className: string }) {
+  return (
+    <motion.div
+      initial={{ opacity: 0 }}
+      animate={{ opacity: 1 }}
+      transition={{ duration: 1, delay: 0.6 }}
+      className={className}
+    >
+      <AnimatedHeroIcon className="text-blue-400" delay={0}>
+        <Code2 className="hero-line-draw-icon w-10 h-10" />
+      </AnimatedHeroIcon>
+      <AnimatedHeroIcon className="text-emerald-400" delay={1}>
+        <TerminalSquare className="hero-line-draw-icon w-10 h-10" />
+      </AnimatedHeroIcon>
+      <AnimatedHeroIcon className="text-yellow-400" delay={2}>
+        <Database className="hero-line-draw-icon w-10 h-10" />
+      </AnimatedHeroIcon>
+      <AnimatedHeroIcon className="text-cyan-400" delay={3}>
+        <FileCode2 className="hero-line-draw-icon w-10 h-10" />
+      </AnimatedHeroIcon>
+    </motion.div>
+  );
+}
+
 export function Hero() {
   const [showLearnMore, setShowLearnMore] = useState(false);
 
