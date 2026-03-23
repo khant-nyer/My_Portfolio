@@ -1,4 +1,4 @@
-import { useState, type CSSProperties, type ReactNode } from "react";
+import { cloneElement, isValidElement, useState, type CSSProperties, type ReactElement } from "react";
 import { motion } from "motion/react";
 import { ArrowRight, Code2, Database, FileCode2, TerminalSquare } from "lucide-react";
 
@@ -7,15 +7,25 @@ function AnimatedHeroIcon({
   className,
   delay,
 }: {
-  children: ReactNode;
+  children: ReactElement<{ className?: string }>;
   className: string;
   delay: number;
 }) {
+  const [isInView, setIsInView] = useState(false);
+
+  const icon = isValidElement(children)
+    ? cloneElement(children, {
+        className: `${children.props.className ?? ""} ${isInView ? "hero-line-draw-icon--visible" : ""}`.trim(),
+      })
+    : children;
+
   return (
     <motion.div
       initial={{ opacity: 0, y: 10 }}
       whileInView={{ opacity: 1, y: 0 }}
       viewport={{ once: false, amount: 0.6 }}
+      onViewportEnter={() => setIsInView(true)}
+      onViewportLeave={() => setIsInView(false)}
       className={className}
       style={{ "--draw-delay": `${delay * 0.3}s` } as CSSProperties}
       whileHover={{ scale: 1.12, y: -4 }}
@@ -25,7 +35,31 @@ function AnimatedHeroIcon({
         delay: delay * 0.2,
       }}
     >
-      {children}
+      {icon}
+    </motion.div>
+  );
+}
+
+function HeroIconRow({ className }: { className: string }) {
+  return (
+    <motion.div
+      initial={{ opacity: 0 }}
+      animate={{ opacity: 1 }}
+      transition={{ duration: 1, delay: 0.6 }}
+      className={className}
+    >
+      <AnimatedHeroIcon className="text-blue-400" delay={0}>
+        <Code2 className="w-10 h-10" />
+      </AnimatedHeroIcon>
+      <AnimatedHeroIcon className="text-emerald-400" delay={1}>
+        <TerminalSquare className="w-10 h-10" />
+      </AnimatedHeroIcon>
+      <AnimatedHeroIcon className="text-yellow-400" delay={2}>
+        <Database className="w-10 h-10" />
+      </AnimatedHeroIcon>
+      <AnimatedHeroIcon className="text-cyan-400" delay={3}>
+        <FileCode2 className="w-10 h-10" />
+      </AnimatedHeroIcon>
     </motion.div>
   );
 }
@@ -64,7 +98,7 @@ export function Hero() {
   return (
     <section id="hero" className="relative min-h-[90vh] flex items-center justify-center overflow-hidden py-20 px-4 sm:px-6 lg:px-8">
       <style>{`
-        .hero-line-draw-icon > * {
+        .hero-line-draw-icon--visible > * {
           stroke-dasharray: 120;
           stroke-dashoffset: 120;
           animation-name: heroLineDraw;
@@ -74,7 +108,7 @@ export function Hero() {
           animation-delay: calc(var(--draw-delay, 0s) + 0.2s);
         }
 
-        .hero-line-draw-icon:hover > * {
+        .hero-line-draw-icon--visible:hover > * {
           animation-name: heroLineRedraw;
           animation-duration: 0.9s;
           animation-timing-function: ease-in-out;
