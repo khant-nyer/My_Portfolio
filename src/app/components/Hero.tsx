@@ -64,26 +64,28 @@ function HeroIconRow({ className }: { className: string }) {
   );
 }
 
-function HeroIconRow({ className }: { className: string }) {
+function HeroInfoToggleButton({
+  label,
+  onClick,
+  className,
+}: {
+  label: "Learn more" | "Show less";
+  onClick: () => void;
+  className: string;
+}) {
   return (
     <motion.div
-      initial={{ opacity: 0 }}
-      animate={{ opacity: 1 }}
-      transition={{ duration: 1, delay: 0.6 }}
+      initial={{ opacity: 0, y: 20 }}
+      animate={{ opacity: 1, y: 0 }}
+      transition={{ duration: 0.5, delay: 0.25 }}
       className={className}
     >
-      <AnimatedHeroIcon className="text-blue-400" delay={0}>
-        <Code2 className="hero-line-draw-icon w-10 h-10" />
-      </AnimatedHeroIcon>
-      <AnimatedHeroIcon className="text-emerald-400" delay={1}>
-        <TerminalSquare className="hero-line-draw-icon w-10 h-10" />
-      </AnimatedHeroIcon>
-      <AnimatedHeroIcon className="text-yellow-400" delay={2}>
-        <Database className="hero-line-draw-icon w-10 h-10" />
-      </AnimatedHeroIcon>
-      <AnimatedHeroIcon className="text-cyan-400" delay={3}>
-        <FileCode2 className="hero-line-draw-icon w-10 h-10" />
-      </AnimatedHeroIcon>
+      <button
+        onClick={onClick}
+        className="inline-flex items-center rounded-lg border border-zinc-700 bg-zinc-900/60 px-5 py-2.5 text-sm font-medium text-zinc-100 transition-colors hover:bg-zinc-800"
+      >
+        {label}
+      </button>
     </motion.div>
   );
 }
@@ -172,19 +174,7 @@ export function Hero() {
         </motion.p>
 
         {!showLearnMore && (
-          <motion.div
-            initial={{ opacity: 0, y: 20 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.5, delay: 0.25 }}
-            className="mb-6"
-          >
-            <button
-              onClick={() => setShowLearnMore(true)}
-              className="inline-flex items-center rounded-lg border border-zinc-700 bg-zinc-900/60 px-5 py-2.5 text-sm font-medium text-zinc-100 transition-colors hover:bg-zinc-800"
-            >
-              Learn more
-            </button>
-          </motion.div>
+          <HeroInfoToggleButton label="Learn more" onClick={() => setShowLearnMore(true)} className="mb-6" />
         )}
 
         {showLearnMore && (
@@ -198,19 +188,7 @@ export function Hero() {
             >
               I completed my System Analysis studies at NUS-ISS in 2022, after which I faced significant challenges returning to my career — both due to the ongoing civil conflict in Myanmar following the 2021 military coup, and the need to care for my family member through multiple surgeries. Despite these circumstances, I remained committed to my professional path, and I'm now fully focused on resuming my journey as a software engineer — bringing a solid analytical foundation, resilience, and a genuine drive to contribute and grow.
             </motion.p>
-            <motion.div
-              initial={{ opacity: 0, y: 20 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.5, delay: 0.25 }}
-              className="mb-10"
-            >
-              <button
-                onClick={() => setShowLearnMore(false)}
-                className="inline-flex items-center rounded-lg border border-zinc-700 bg-zinc-900/60 px-5 py-2.5 text-sm font-medium text-zinc-100 transition-colors hover:bg-zinc-800"
-              >
-                Show less
-              </button>
-            </motion.div>
+            <HeroInfoToggleButton label="Show less" onClick={() => setShowLearnMore(false)} className="mb-10" />
           </>
         )}
 
