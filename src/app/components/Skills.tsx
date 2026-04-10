@@ -20,7 +20,7 @@ const skills = [
   {
     category: "Tools & DevOps",
     icon: <Blocks className="w-6 h-6 text-purple-400" />,
-    items: ["Git/GitHub", "Docker", "AWS", "Figma"]
+    items: ["Git/GitHub", "RabbitMQ", "Docker", "AWS", "Figma"]
   }
 ];
 
