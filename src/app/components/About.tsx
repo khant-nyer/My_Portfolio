@@ -64,9 +64,9 @@ export function About() {
                     </div>
                     <div className="relative pl-6 border-l-2 border-zinc-800">
                       <div className="absolute w-3 h-3 bg-zinc-600 rounded-full -left-[7px] top-1.5 ring-4 ring-zinc-950" />
-                      <h4 className="text-lg font-semibold text-white">Software Engineering Intern</h4>
+                      <h4 className="text-lg font-semibold text-white">System Analyst Intern</h4>
                       <p className="text-cyan-400 mb-2">Total eBiz Solutions • September 2021 – January 2022</p>
-                      <p className="text-zinc-400">This internship at Total eBiz Solutions provided valuable hands-on experience in both business analysis and software development. Working across dual roles strengthened my ability to bridge the gap between client needs and technical solutions, while developing practical skills in requirements gathering, documentation, UAT, and .NET system development — laying a solid foundation for a career in IT.</p>
+                      <p className="text-zinc-400">This internship at Total eBiz Solutions provided valuable hands-on experience in both business analysis and software development. Working across dual roles strengthened my ability to bridge the gap between client needs and technical solutions, while developing practical skills in requirements gathering, documentation, UAT, and Java, Spring Framework system development — laying a solid foundation for a career in IT.</p>
                     </div>
                   </div>
                 </div>
