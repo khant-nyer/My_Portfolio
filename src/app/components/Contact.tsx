@@ -33,7 +33,7 @@ export function Contact() {
                 </div>
                 <div>
                   <h4 className="text-sm font-medium text-zinc-400">Email Me At</h4>
-                  <a href="mailto:weixing.william@gmail.com" className="text-lg font-medium text-white hover:text-emerald-400 transition-colors">weixing.william@gmail.com</a>
+                  <a href="mailto:khantnyer.dev@gmail.com" className="text-lg font-medium text-white hover:text-emerald-400 transition-colors">khantnyer.dev@gmail.com</a>
                 </div>
               </div>
               <div className="flex items-center space-x-4 p-4 bg-zinc-950 border border-zinc-800 rounded-xl">
