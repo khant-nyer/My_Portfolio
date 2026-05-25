@@ -59,7 +59,7 @@ export function About() {
                     <div className="relative pl-6 border-l-2 border-zinc-800">
                       <div className="absolute w-3 h-3 bg-cyan-500 rounded-full -left-[7px] top-1.5 ring-4 ring-zinc-950" />
                       <h4 className="text-lg font-semibold text-white">Freelance Junior Web Developer</h4>
-                      <p className="text-cyan-400 mb-2">WK Consults Pte Ltd • Nov 2025 - Present</p>
+                      <p className="text-cyan-400 mb-2">WK Consults Pte Ltd • Nov 2025 - April 2026</p>
                       <p className="text-zinc-400">Engaged as a freelance developer to design and build a Personal Loan Finder web application from the ground up. Took full ownership of the project lifecycle — from initial architecture and UI design through to development, testing, and final delivery — using React.js. The application enables users to browse, compare, and identify suitable personal loan options, delivering a seamless and intuitive experience.</p>
                     </div>
                     <div className="relative pl-6 border-l-2 border-zinc-800">
